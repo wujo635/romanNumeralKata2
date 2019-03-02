@@ -39,4 +39,9 @@ public class RomanNumeralConverterTest {
         assertEquals("Invalid arabic value input for conversion to roman.", converter.convertToRoman(5000));
     }
 
+    @Test
+    public void shouldDisallowArabicValuesLessThan1() {
+        assertEquals("Invalid arabic value input for conversion to roman.", converter.convertToRoman(0));
+    }
+
 }
