@@ -6,6 +6,9 @@ public class RomanNumeralConverter {
     private int[] values = new int[]{1000, 500, 100, 50, 10, 5, 4, 1};
 
     public String convertToRoman(int arabicValue) {
+        if (arabicValue >= 5000) {
+            return "Invalid arabic value input for conversion to roman.";
+        }
         String romanNumeral = "";
         int remainingToConvert = arabicValue;
         while (remainingToConvert > 0) {
