@@ -2,8 +2,8 @@ package com.pillar;
 
 public class RomanNumeralConverter {
 
-    private String[] numerals = new String[]{"M", "D", "C", "L", "X", "V", "I"};
-    private int[] values = new int[]{1000, 500, 100, 50, 10, 5, 1};
+    private String[] numerals = new String[]{"M", "D", "C", "L", "X", "V", "IV", "I"};
+    private int[] values = new int[]{1000, 500, 100, 50, 10, 5, 4, 1};
 
     public String convertToRoman(int arabicValue) {
         String romanNumeral = "";
