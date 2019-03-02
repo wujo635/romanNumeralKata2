@@ -54,4 +54,9 @@ public class RomanNumeralConverterTest {
         assertFailure("Invalid arabic value input for conversion to roman.", converter.convertToRoman(0));
     }
 
+    @Test
+    public void shouldConvertRomanNumeralWithMultipleSubtractionsFromArabicValue() {
+        assertSuccess("CMXCIX", converter.convertToRoman(999));
+    }
+
 }
