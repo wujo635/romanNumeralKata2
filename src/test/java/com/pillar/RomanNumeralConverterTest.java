@@ -17,4 +17,10 @@ public class RomanNumeralConverterTest {
     public void shouldConvert2toII() {
         assertEquals("II", converter.convertToRoman(2));
     }
+
+    @Test
+    public void shouldConvert5toV() {
+        assertEquals("V", converter.convertToRoman(5));
+    }
+
 }
