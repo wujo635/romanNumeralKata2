@@ -18,6 +18,11 @@ public class RomanNumeralConverterTest {
         assertEquals(expectedValue, actualValue.message);
     }
 
+    private void assertSuccess(Integer expectedValue, ConversionResponse actualValue) {
+        assertTrue(actualValue.success);
+        assertEquals(expectedValue, actualValue.arabicValue);
+    }
+
     @Test
     public void shouldConvertMultipleOfSameRomanNumeralFromArabicValue() {
         assertSuccess("II", converter.convertToRoman(2));
@@ -57,6 +62,11 @@ public class RomanNumeralConverterTest {
     @Test
     public void shouldConvertRomanNumeralWithMultipleSubtractionsFromArabicValue() {
         assertSuccess("CMXCIX", converter.convertToRoman(999));
+    }
+
+    @Test
+    public void shouldConvertSingleRomanNumeralToArabicValue() {
+        assertSuccess(1, converter.convertToArabic("I"));
     }
 
 }
