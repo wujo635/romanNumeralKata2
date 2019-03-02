@@ -8,40 +8,50 @@ public class RomanNumeralConverterTest {
 
     private RomanNumeralConverter converter = new RomanNumeralConverter();
 
+    private void assertSuccess(String expectedValue, ConversionResponse actualValue) {
+        assertTrue(actualValue.success);
+        assertEquals(expectedValue, actualValue.romanNumeral);
+    }
+
+    private void assertFailure(String expectedValue, ConversionResponse actualValue) {
+        assertFalse(actualValue.success);
+        assertEquals(expectedValue, actualValue.message);
+    }
+
     @Test
     public void shouldConvertMultipleOfSameRomanNumeralFromArabicValue() {
-        assertEquals("II", converter.convertToRoman(2));
+        assertSuccess("II", converter.convertToRoman(2));
     }
 
     @Test
     public void shouldConvertSingleRomanNumeralFromArabicValue() {
-        assertEquals("I", converter.convertToRoman(1));
-        assertEquals("V", converter.convertToRoman(5));
-        assertEquals("X", converter.convertToRoman(10));
-        assertEquals("L", converter.convertToRoman(50));
-        assertEquals("C", converter.convertToRoman(100));
-        assertEquals("D", converter.convertToRoman(500));
-        assertEquals("M", converter.convertToRoman(1000));
+        assertSuccess("I", converter.convertToRoman(1));
+        assertSuccess("V", converter.convertToRoman(5));
+        assertSuccess("X", converter.convertToRoman(10));
+        assertSuccess("L", converter.convertToRoman(50));
+        assertSuccess("C", converter.convertToRoman(100));
+        assertSuccess("D", converter.convertToRoman(500));
+        assertSuccess("M", converter.convertToRoman(1000));
     }
 
     @Test
     public void shouldConvertArabicValueToRomanUsingAllNumerals() {
-        assertEquals("MDCLXVI", converter.convertToRoman(1666));
+        assertSuccess("MDCLXVI", converter.convertToRoman(1666));
     }
 
     @Test
     public void shouldConvertRomanNumeralUsingSubtractionFromArabicValue() {
-        assertEquals("IV", converter.convertToRoman(4));
+        assertSuccess("IV", converter.convertToRoman(4));
     }
 
     @Test
     public void shouldDisallowArabicValues5000OrGreater() {
-        assertEquals("Invalid arabic value input for conversion to roman.", converter.convertToRoman(5000));
+        assertFailure("Invalid arabic value input for conversion to roman.", converter.convertToRoman(5000));
     }
 
     @Test
     public void shouldDisallowArabicValuesLessThan1() {
-        assertEquals("Invalid arabic value input for conversion to roman.", converter.convertToRoman(0));
+        assertFailure("Invalid arabic value input for conversion to roman.", converter.convertToRoman(0));
     }
 
 }

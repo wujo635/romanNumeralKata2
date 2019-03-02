@@ -5,9 +5,9 @@ public class RomanNumeralConverter {
     private String[] numerals = new String[]{"M", "D", "C", "L", "X", "V", "IV", "I"};
     private int[] values = new int[]{1000, 500, 100, 50, 10, 5, 4, 1};
 
-    public String convertToRoman(int arabicValue) {
+    public ConversionResponse convertToRoman(int arabicValue) {
         if (isOutOfRomanNumeralRange(arabicValue)) {
-            return "Invalid arabic value input for conversion to roman.";
+            return ConversionResponse.failure("Invalid arabic value input for conversion to roman.");
         }
         String romanNumeral = "";
         int remainingToConvert = arabicValue;
@@ -18,7 +18,7 @@ public class RomanNumeralConverter {
                 remainingToConvert -= numeralCount * values[index];
             }
         }
-        return romanNumeral;
+        return ConversionResponse.success(romanNumeral);
     }
 
     private boolean isOutOfRomanNumeralRange(int arabicValue) {
