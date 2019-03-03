@@ -34,6 +34,9 @@ public class RomanNumeralConverter {
                 remainingToConvert = remainingToConvert.substring(numerals[index].length());
             }
         }
+        if (arabicValue == 0) {
+            return ConversionResponse.failure("Failed to convert Roman numeral to Arabic value.");
+        }
         return ConversionResponse.success(arabicValue);
     }
 }
