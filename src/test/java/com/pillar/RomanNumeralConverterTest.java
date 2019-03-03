@@ -67,11 +67,12 @@ public class RomanNumeralConverterTest {
     @Test
     public void shouldConvertSingleRomanNumeralToArabicValue() {
         assertSuccess(1, converter.convertToArabic("I"));
-    }
-
-    @Test
-    public void shouldConvertVto5() {
         assertSuccess(5, converter.convertToArabic("V"));
+        assertSuccess(10, converter.convertToArabic("X"));
+        assertSuccess(50, converter.convertToArabic("L"));
+        assertSuccess(100, converter.convertToArabic("C"));
+        assertSuccess(500, converter.convertToArabic("D"));
+        assertSuccess(1000, converter.convertToArabic("M"));
     }
 
 }
