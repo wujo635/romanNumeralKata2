@@ -114,4 +114,9 @@ public class RomanNumeralConverterTest {
     public void shouldDisallowEmptyRomanNumeral() {
         assertFailure("Failed to convert Roman numeral to Arabic value.", converter.convertToArabic(""));
     }
+
+    @Test
+    public void shouldDisallowRomanNumeralsUsedMoreThanFourTimes() {
+        assertFailure("Failed to convert Roman numeral to Arabic value.", converter.convertToArabic("IIIIII"));
+    }
 }
