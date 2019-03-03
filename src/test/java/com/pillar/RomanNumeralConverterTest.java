@@ -116,7 +116,7 @@ public class RomanNumeralConverterTest {
     }
 
     @Test
-    public void shouldDisallowRomanNumeralsUsedMoreThanFourTimes() {
-        assertFailure("Failed to convert Roman numeral to Arabic value.", converter.convertToArabic("IIIIII"));
+    public void shouldDisallowRomanNumeralsUsedMoreThanThreeTimes() {
+        assertFailure("Failed to convert Roman numeral to Arabic value.", converter.convertToArabic("IIII"));
     }
 }
