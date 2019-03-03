@@ -69,4 +69,9 @@ public class RomanNumeralConverterTest {
         assertSuccess(1, converter.convertToArabic("I"));
     }
 
+    @Test
+    public void shouldConvertVto5() {
+        assertSuccess(5, converter.convertToArabic("V"));
+    }
+
 }
