@@ -80,4 +80,8 @@ public class RomanNumeralConverterTest {
         assertSuccess(1666, converter.convertToArabic("MDCLXVI"));
     }
 
+    @Test
+    public void shouldConvertRomanNumeralWithSubtractionToArabicValue() {
+        assertSuccess(999, converter.convertToArabic("CMXCIX"));
+    }
 }
