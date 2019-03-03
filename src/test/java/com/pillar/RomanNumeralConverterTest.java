@@ -9,8 +9,7 @@ public class RomanNumeralConverterTest {
     private RomanNumeralConverter converter = new RomanNumeralConverter();
 
     private void assertSuccess(String expectedValue, ConversionResponse actualValue) {
-        assertTrue(actualValue.success);
-        assertEquals(expectedValue, actualValue.romanNumeral);
+        assertEquals(ConversionResponse.success(expectedValue), actualValue);
     }
 
     private void assertFailure(String expectedValue, ConversionResponse actualValue) {
@@ -19,8 +18,7 @@ public class RomanNumeralConverterTest {
     }
 
     private void assertSuccess(Integer expectedValue, ConversionResponse actualValue) {
-        assertTrue(actualValue.success);
-        assertEquals(expectedValue, actualValue.arabicValue);
+        assertEquals(ConversionResponse.success(expectedValue), actualValue);
     }
 
     @Test

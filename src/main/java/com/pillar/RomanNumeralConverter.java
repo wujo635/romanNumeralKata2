@@ -46,6 +46,6 @@ public class RomanNumeralConverter {
     }
 
     private boolean isInvalidRomanNumeral(String romanNumeral) {
-        return !romanNumeral.matches("[M]*[CM]*[D]*[CD]*[C]*[XC]*[L]*[XL]*[X]*[IX]*[V]*[IV]*[I]*");
+        return !romanNumeral.matches("\\AM{0,4}(CM)?D?(CD)?C{0,3}(XC)?L?(XL)?X{0,3}(IX)?V?(IV)?I{0,3}\\z");
     }
 }
