@@ -26,7 +26,7 @@ public class RomanNumeralConverter {
     }
 
     public ConversionResponse convertToArabic(String romanNumeral) {
-        if (isInvalidRomanNumeral(romanNumeral)) {
+        if (isInvalidRomanNumeral(romanNumeral) || romanNumeral.isEmpty()) {
             return ConversionResponse.failure("Failed to convert Roman numeral to Arabic value.");
         }
         int arabicValue = 0;
