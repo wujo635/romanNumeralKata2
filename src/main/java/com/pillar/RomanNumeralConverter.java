@@ -26,11 +26,14 @@ public class RomanNumeralConverter {
     }
 
     public ConversionResponse convertToArabic(String romanNumeral) {
+        int arabicValue = 0;
+        String remainingToConvert = romanNumeral;
         for (int index = 0; index < numerals.length; index++) {
-            if (numerals[index].equals(romanNumeral)) {
-                return ConversionResponse.success(values[index]);
+            while (remainingToConvert.startsWith(numerals[index])) {
+                arabicValue += values[index];
+                remainingToConvert = remainingToConvert.substring(numerals[index].length());
             }
         }
-        return ConversionResponse.success(1);
+        return ConversionResponse.success(arabicValue);
     }
 }
