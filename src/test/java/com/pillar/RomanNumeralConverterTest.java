@@ -99,4 +99,9 @@ public class RomanNumeralConverterTest {
     public void shouldDisallowMixOfRomanNumeralsAndInvalidCharacters() {
         assertFailure("Failed to convert Roman numeral to Arabic value.", converter.convertToArabic("CA"));
     }
+
+    @Test
+    public void shouldDisallowRomanNumeralsOutOfOrder() {
+        assertFailure("Failed to convert Roman numeral to Arabic value.", converter.convertToArabic("IC"));
+    }
 }
