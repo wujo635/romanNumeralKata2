@@ -26,7 +26,7 @@ public class RomanNumeralConverter {
     }
 
     public ConversionResponse convertToArabic(String romanNumeral) {
-        if (!romanNumeral.matches("[MDCLXVI]*")) {
+        if (containsInvalidRomanNumerals(romanNumeral)) {
             return ConversionResponse.failure("Failed to convert Roman numeral to Arabic value.");
         }
         int arabicValue = 0;
@@ -38,5 +38,9 @@ public class RomanNumeralConverter {
             }
         }
         return ConversionResponse.success(arabicValue);
+    }
+
+    private boolean containsInvalidRomanNumerals(String romanNumeral) {
+        return !romanNumeral.matches("[MDCLXVI]*");
     }
 }
