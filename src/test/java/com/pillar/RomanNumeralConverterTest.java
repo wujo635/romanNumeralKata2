@@ -65,6 +65,11 @@ public class RomanNumeralConverterTest {
     }
 
     @Test
+    public void shouldConvertLongRomanNumeralFromArabic() {
+        assertSuccess("MMMDCCCLXXXVIII", converter.convertToRoman(3888));
+    }
+
+    @Test
     public void shouldConvertSingleRomanNumeralToArabicValue() {
         assertSuccess(1, converter.convertToArabic("I"));
         assertSuccess(5, converter.convertToArabic("V"));
