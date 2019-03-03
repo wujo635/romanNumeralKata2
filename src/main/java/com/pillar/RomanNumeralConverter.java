@@ -9,16 +9,18 @@ public class RomanNumeralConverter {
         if (isOutOfRomanNumeralRange(arabicValue)) {
             return ConversionResponse.failure("Invalid arabic value input for conversion to roman.");
         }
+        return ConversionResponse.success(buildRomanNumeralString(arabicValue));
+    }
+
+    private String buildRomanNumeralString(int arabicValue) {
         String romanNumeral = "";
         int remainingToConvert = arabicValue;
-        while (remainingToConvert > 0) {
-            for (int index = 0; index < numerals.length; index++) {
-                int numeralCount = remainingToConvert / values[index];
-                romanNumeral += new String(new char[numeralCount]).replace("\0", numerals[index]);
-                remainingToConvert -= numeralCount * values[index];
-            }
+        for (int index = 0; index < numerals.length; index++) {
+            int numeralCount = remainingToConvert / values[index];
+            romanNumeral += new String(new char[numeralCount]).replace("\0", numerals[index]);
+            remainingToConvert -= numeralCount * values[index];
         }
-        return ConversionResponse.success(romanNumeral);
+        return romanNumeral;
     }
 
     private boolean isOutOfRomanNumeralRange(int arabicValue) {
