@@ -75,4 +75,9 @@ public class RomanNumeralConverterTest {
         assertSuccess(1000, converter.convertToArabic("M"));
     }
 
+    @Test
+    public void shouldConvertMultipleRomanNumeralsToArabicValue() {
+        assertSuccess(1666, converter.convertToArabic("MDCLXVI"));
+    }
+
 }
