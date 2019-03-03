@@ -104,4 +104,9 @@ public class RomanNumeralConverterTest {
     public void shouldDisallowRomanNumeralsOutOfOrder() {
         assertFailure("Failed to convert Roman numeral to Arabic value.", converter.convertToArabic("IC"));
     }
+
+    @Test
+    public void shouldConvertLongRomanNumeralToArabicValue() {
+        assertSuccess(3888, converter.convertToArabic("MMMDCCCLXXXVIII"));
+    }
 }
