@@ -32,10 +32,15 @@ public class RomanNumeralConverter {
         int arabicValue = 0;
         String remainingToConvert = romanNumeral;
         for (int index = 0; index < numerals.length; index++) {
+            int occurences = 0;
             while (remainingToConvert.startsWith(numerals[index])) {
-                arabicValue += values[index];
                 remainingToConvert = remainingToConvert.substring(numerals[index].length());
+                occurences++;
             }
+            if (occurences > 3) {
+                return ConversionResponse.failure("Failed to convert Roman numeral to Arabic value.");
+            }
+            arabicValue += occurences * values[index];
         }
         return ConversionResponse.success(arabicValue);
     }
