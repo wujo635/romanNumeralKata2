@@ -89,4 +89,9 @@ public class RomanNumeralConverterTest {
     public void shouldConvertRomanNumeralWithSubtractionToArabicValue() {
         assertSuccess(999, converter.convertToArabic("CMXCIX"));
     }
+
+    @Test
+    public void shouldDisallowRomanNumeralWithInvalidCharacters() {
+        assertFailure("Failed to convert Roman numeral to Arabic value.", converter.convertToArabic("A"));
+    }
 }
